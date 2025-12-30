@@ -1,0 +1,725 @@
+/* ==========================================================================
+   Anime Store Hero Banner - Production CSS
+   Pure CSS animations, no external libraries
+   ========================================================================== */
+
+/* CSS Custom Properties (Design Tokens) */
+:root {
+  /* Colors - HSL Format */
+  --background: 240 15% 6%;
+  --foreground: 0 0% 98%;
+  --muted-foreground: 240 5% 65%;
+  --border: 240 10% 25%;
+
+  /* Neon Accent Colors */
+  --neon-pink: 320 100% 60%;
+  --neon-cyan: 185 100% 50%;
+  --neon-gold: 45 100% 55%;
+  --neon-purple: 270 100% 65%;
+
+  /* Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-body: 'Rajdhani', sans-serif;
+
+  /* Animation Timings */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+
+  /* Spacing */
+  --radius: 0.75rem;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Hero Banner Container
+   ========================================================================== */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  max-height: 900px;
+  overflow: hidden;
+  background-color: hsl(var(--background));
+}
+
+.hero-banner:focus {
+  outline: none;
+}
+
+.hero-banner:focus-visible {
+  outline: 2px solid hsl(var(--neon-cyan));
+  outline-offset: -2px;
+}
+
+/* ==========================================================================
+   Slides
+   ========================================================================== */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-slow) ease;
+}
+
+.slide-active {
+  opacity: 1;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Slide Background */
+.slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Slide Overlay */
+.slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--background) / 0.85) 0%,
+    hsl(var(--background) / 0.6) 50%,
+    hsl(var(--background) / 0.75) 100%
+  );
+}
+
+/* Slide Content */
+.slide-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .slide-content {
+    padding: 3rem;
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .slide-content {
+    padding: 5rem;
+    max-width: 900px;
+    margin: 0;
+    margin-left: 5%;
+  }
+}
+
+/* ==========================================================================
+   Content Animations
+   ========================================================================== */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content-enter .badge {
+  animation: fadeInDown 0.5s ease-out 0.1s both;
+}
+
+.hero-content-enter .headline {
+  animation: fadeInDown 0.5s ease-out 0.15s both;
+}
+
+.hero-content-enter .subtext {
+  animation: fadeInUp 0.5s ease-out 0.2s both;
+}
+
+.hero-content-enter .timer {
+  animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+.hero-content-enter .cta-button {
+  animation: fadeInUp 0.5s ease-out 0.4s both;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   Badge
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: hsl(var(--neon-pink));
+  color: hsl(var(--foreground));
+  width: fit-content;
+}
+
+.badge-cyan {
+  background-color: hsl(var(--neon-cyan));
+  color: hsl(var(--background));
+}
+
+.badge-gold {
+  background-color: hsl(var(--neon-gold));
+  color: hsl(var(--background));
+}
+
+.badge-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Badge Pulse Animation */
+@keyframes badgePulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--neon-gold) / 0.6),
+                0 0 40px hsl(var(--neon-gold) / 0.4),
+                0 0 60px hsl(var(--neon-gold) / 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--neon-gold) / 0.8),
+                0 0 60px hsl(var(--neon-gold) / 0.6),
+                0 0 90px hsl(var(--neon-gold) / 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+.badge:not(.badge-cyan):not(.badge-gold).badge-pulse {
+  animation-name: badgePulsePink;
+}
+
+@keyframes badgePulsePink {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.6),
+                0 0 40px hsl(var(--neon-pink) / 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--neon-pink) / 0.8),
+                0 0 60px hsl(var(--neon-pink) / 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.badge-cyan.badge-pulse {
+  animation-name: badgePulseCyan;
+}
+
+@keyframes badgePulseCyan {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.6),
+                0 0 40px hsl(var(--neon-cyan) / 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.8),
+                0 0 60px hsl(var(--neon-cyan) / 0.6);
+    transform: scale(1.02);
+  }
+}
+
+.badge-gold.badge-pulse {
+  animation-name: badgePulseGold;
+}
+
+@keyframes badgePulseGold {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--neon-gold) / 0.6),
+                0 0 40px hsl(var(--neon-gold) / 0.4);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--neon-gold) / 0.8),
+                0 0 60px hsl(var(--neon-gold) / 0.6);
+    transform: scale(1.02);
+  }
+}
+
+/* ==========================================================================
+   Headline
+   ========================================================================== */
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: hsl(var(--foreground));
+}
+
+/* Text Glow Effects */
+.text-glow-pink {
+  text-shadow: 
+    0 0 10px hsl(var(--neon-pink) / 0.8),
+    0 0 20px hsl(var(--neon-pink) / 0.6),
+    0 0 40px hsl(var(--neon-pink) / 0.4);
+}
+
+.text-glow-cyan {
+  text-shadow: 
+    0 0 10px hsl(var(--neon-cyan) / 0.8),
+    0 0 20px hsl(var(--neon-cyan) / 0.6),
+    0 0 40px hsl(var(--neon-cyan) / 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 
+    0 0 10px hsl(var(--neon-gold) / 0.8),
+    0 0 20px hsl(var(--neon-gold) / 0.6),
+    0 0 40px hsl(var(--neon-gold) / 0.4);
+}
+
+/* ==========================================================================
+   Subtext
+   ========================================================================== */
+.subtext {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: hsl(var(--muted-foreground));
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Countdown Timer
+   ========================================================================== */
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.timer-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: hsl(var(--neon-pink));
+}
+
+.timer-cyan .timer-icon {
+  color: hsl(var(--neon-cyan));
+}
+
+.timer-gold .timer-icon {
+  color: hsl(var(--neon-gold));
+}
+
+.timer-label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground));
+}
+
+.timer-digits {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.timer-digit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  border: 1px solid hsl(var(--neon-pink) / 0.3);
+  background-color: hsl(var(--neon-pink) / 0.1);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--neon-pink));
+  text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
+}
+
+.timer-cyan .timer-digit {
+  border-color: hsl(var(--neon-cyan) / 0.3);
+  background-color: hsl(var(--neon-cyan) / 0.1);
+  color: hsl(var(--neon-cyan));
+  text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+}
+
+.timer-gold .timer-digit {
+  border-color: hsl(var(--neon-gold) / 0.3);
+  background-color: hsl(var(--neon-gold) / 0.1);
+  color: hsl(var(--neon-gold));
+  text-shadow: 0 0 10px hsl(var(--neon-gold) / 0.5);
+}
+
+.timer-sep {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(var(--muted-foreground));
+}
+
+/* Timer Tick Animation */
+@keyframes timerTick {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.timer-digit.tick {
+  animation: timerTick 0.3s ease-out;
+}
+
+/* ==========================================================================
+   CTA Button
+   ========================================================================== */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal) ease;
+  cursor: pointer;
+  border: none;
+}
+
+.cta-pink {
+  background-color: hsl(var(--neon-pink));
+  color: hsl(var(--foreground));
+  box-shadow: 
+    0 0 20px hsl(var(--neon-pink) / 0.5),
+    0 0 40px hsl(var(--neon-pink) / 0.3);
+}
+
+.cta-cyan {
+  background-color: hsl(var(--neon-cyan));
+  color: hsl(var(--background));
+  box-shadow: 
+    0 0 20px hsl(var(--neon-cyan) / 0.5),
+    0 0 40px hsl(var(--neon-cyan) / 0.3);
+}
+
+.cta-gold {
+  background-color: hsl(var(--neon-gold));
+  color: hsl(var(--background));
+  box-shadow: 
+    0 0 20px hsl(var(--neon-gold) / 0.5),
+    0 0 40px hsl(var(--neon-gold) / 0.3);
+}
+
+.cta-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: transform var(--transition-normal) ease;
+}
+
+/* Shimmer Effect */
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--foreground) / 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.cta-button:hover .cta-icon {
+  transform: translateX(4px);
+}
+
+.cta-pink:hover {
+  box-shadow: 
+    0 10px 30px hsl(var(--neon-pink) / 0.4),
+    0 0 60px hsl(var(--neon-pink) / 0.3);
+}
+
+.cta-cyan:hover {
+  box-shadow: 
+    0 10px 30px hsl(var(--neon-cyan) / 0.4),
+    0 0 60px hsl(var(--neon-cyan) / 0.3);
+}
+
+.cta-gold:hover {
+  box-shadow: 
+    0 10px 30px hsl(var(--neon-gold) / 0.4),
+    0 0 60px hsl(var(--neon-gold) / 0.3);
+}
+
+.cta-button:focus {
+  outline: none;
+}
+
+.cta-button:focus-visible {
+  outline: 2px solid hsl(var(--neon-cyan));
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Navigation Arrows
+   ========================================================================== */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: hsl(var(--background) / 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--border) / 0.3);
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  transition: all var(--transition-normal) ease;
+}
+
+@media (min-width: 768px) {
+  .nav-arrow {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.nav-prev {
+  left: 1rem;
+}
+
+.nav-next {
+  right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .nav-prev {
+    left: 2rem;
+  }
+  .nav-next {
+    right: 2rem;
+  }
+}
+
+.nav-arrow svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .nav-arrow svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.nav-arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+  background-color: hsl(var(--neon-pink) / 0.3);
+}
+
+.nav-arrow:focus {
+  outline: none;
+}
+
+.nav-arrow:focus-visible {
+  outline: 2px solid hsl(var(--neon-cyan));
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Slide Indicators
+   ========================================================================== */
+.slide-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 2px solid hsl(var(--muted-foreground) / 0.5);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal) ease;
+}
+
+.indicator:hover {
+  border-color: hsl(var(--neon-pink));
+  background-color: hsl(var(--neon-pink) / 0.3);
+}
+
+.indicator-active {
+  width: 2rem;
+  background-color: hsl(var(--neon-pink));
+  border-color: hsl(var(--neon-pink));
+}
+
+@keyframes indicatorGlow {
+  0%, 100% {
+    border-color: hsl(var(--neon-pink));
+    box-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
+  }
+  33% {
+    border-color: hsl(var(--neon-cyan));
+    box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
+  }
+  66% {
+    border-color: hsl(var(--neon-gold));
+    box-shadow: 0 0 10px hsl(var(--neon-gold) / 0.5);
+  }
+}
+
+.indicator-active {
+  animation: indicatorGlow 3s linear infinite;
+}
+
+.indicator:focus {
+  outline: none;
+}
+
+.indicator:focus-visible {
+  outline: 2px solid hsl(var(--neon-cyan));
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 640px) {
+  .timer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .timer-digit {
+    min-width: 2.5rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.25rem;
+  }
+
+  .cta-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+  .hero-banner {
+    height: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .nav-arrow,
+  .slide-indicators {
+    display: none;
+  }
+
+  .slide:not(.slide-active) {
+    display: none;
+  }
+}
