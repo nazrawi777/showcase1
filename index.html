@@ -1,26 +1,184 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Lovable App</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop premium anime merchandise with exclusive flash sales, limited collector bundles, and early access to new releases. Up to 50% off trending titles, figures, and apparel.">
+  <title>Anime Store — Flash Sales, Collector Bundles & New Releases</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <main>
+    <section 
+      id="hero-banner"
+      class="hero-banner"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Hero banner carousel with promotional offers"
+      tabindex="0"
+    >
+            <article 
+        class="slide"
+        data-slide="2"
+        data-countdown-hours="72"
+        role="group"
+        aria-roledescription="slide"
+        aria-label="Slide 3: New Release — Intro Discount"
+        aria-hidden="true"
+      >
+        <div class="slide-bg" style="background-image: url('assets/images/slide-3-bg.jpg');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content" data-accent="gold">
+          <div class="badge badge-gold badge-pulse" role="status" aria-label="Special offer: EARLY ACCESS">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/>
+            </svg>
+            <span>EARLY ACCESS</span>
+          </div>
+          <h1 class="headline text-glow-gold">New Release — Intro Discount</h1>
+          <p class="subtext">Be first to own the latest drops with special introductory pricing.</p>
+          <div class="timer timer-gold" role="timer" aria-label="Sale countdown timer">
+            <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+            <span class="timer-label">Ends in</span>
+            <div class="timer-digits">
+              <span class="timer-digit digit-hours">72</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-minutes">00</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-seconds">00</span>
+            </div>
+          </div>
+          <a href="#preorder" class="cta-button cta-gold" aria-label="Preorder">
+            <span>Preorder</span>
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </a>
+        </div>
+      </article>
+      
+      <article 
+        class="slide slide-active"
+        data-slide="0"
+        data-countdown-hours="48"
+        role="group"
+        aria-roledescription="slide"
+        aria-label="Slide 1: Flash Sale — Anime Drops"
+      >
+        <div class="slide-bg" style="background-image: url('assets/images/slide-1-bg.jpg');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content hero-content-enter" data-accent="pink">
+          <div class="badge badge-pulse" role="status" aria-label="Special offer: UP TO 50% OFF">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>UP TO 50% OFF</span>
+          </div>
+          <h1 class="headline text-glow-pink">Flash Sale — Anime Drops</h1>
+          <p class="subtext">Limited-time deals on trending titles, figures, and apparel. Don't miss out!</p>
+          <div class="timer" role="timer" aria-label="Sale countdown timer">
+            <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+            <span class="timer-label">Ends in</span>
+            <div class="timer-digits">
+              <span class="timer-digit digit-hours">48</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-minutes">00</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-seconds">00</span>
+            </div>
+          </div>
+          <a href="#shop" class="cta-button cta-pink" aria-label="Shop Now">
+            <span>Shop Now</span>
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </a>
+        </div>
+      </article>
 
-    <!-- TODO: Update og:title to match your application name -->
-    <meta property="og:title" content="Lovable App" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+   
+      <article 
+        class="slide"
+        data-slide="1"
+        data-countdown-hours="24"
+        role="group"
+        aria-roledescription="slide"
+        aria-label="Slide 2: Collector Bundle — Limited Stock"
+        aria-hidden="true"
+      >
+        <div class="slide-bg" style="background-image: url('assets/images/slide-2-bg.jpg');"></div>
+        <div class="slide-overlay"></div>
+        <div class="slide-content" data-accent="cyan">
+          <div class="badge badge-cyan badge-pulse" role="status" aria-label="Special offer: EXCLUSIVE DEAL">
+            <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6"/>
+              <path d="M12 2L4.5 9.5 12 17l7.5-7.5L12 2z"/>
+            </svg>
+            <span>EXCLUSIVE DEAL</span>
+          </div>
+          <h1 class="headline text-glow-cyan">Collector Bundle — Limited Stock</h1>
+          <p class="subtext">Premium figurines, exclusive manga sets, and rare collector items. While supplies last.</p>
+          <div class="timer timer-cyan" role="timer" aria-label="Sale countdown timer">
+            <svg class="timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12,6 12,12 16,14"/>
+            </svg>
+            <span class="timer-label">Ends in</span>
+            <div class="timer-digits">
+              <span class="timer-digit digit-hours">24</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-minutes">00</span>
+              <span class="timer-sep">:</span>
+              <span class="timer-digit digit-seconds">00</span>
+            </div>
+          </div>
+          <a href="#bundles" class="cta-button cta-cyan" aria-label="Grab Bundle">
+            <span>Grab Bundle</span>
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </a>
+        </div>
+      </article>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+      <button class="nav-arrow nav-prev" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="15,18 9,12 15,6"/>
+        </svg>
+      </button>
+      <button class="nav-arrow nav-next" aria-label="Next slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <polyline points="9,18 15,12 9,6"/>
+        </svg>
+      </button>
+      <div class="slide-indicators" role="tablist" aria-label="Slide navigation">
+        <button class="indicator indicator-active" data-slide="0" role="tab" aria-selected="true" aria-label="Go to slide 1"></button>
+        <button class="indicator" data-slide="1" role="tab" aria-selected="false" aria-label="Go to slide 2" tabindex="-1"></button>
+        <button class="indicator" data-slide="2" role="tab" aria-selected="false" aria-label="Go to slide 3" tabindex="-1"></button>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <style>
+      .slide:not(:first-of-type) { display: none !important; }
+      .nav-arrow, .slide-indicators { display: none !important; }
+    </style>
+  </noscript>
+
+  <script src="js/main.js"></script>
+</body>
 </html>

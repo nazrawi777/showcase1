@@ -1,36 +1,24 @@
-/* ==========================================================================
-   Anime Store Hero Banner - Production CSS
-   Pure CSS animations, no external libraries
-   ========================================================================== */
-
-/* CSS Custom Properties (Design Tokens) */
 :root {
-  /* Colors - HSL Format */
   --background: 240 15% 6%;
   --foreground: 0 0% 98%;
   --muted-foreground: 240 5% 65%;
   --border: 240 10% 25%;
 
-  /* Neon Accent Colors */
   --neon-pink: 320 100% 60%;
   --neon-cyan: 185 100% 50%;
   --neon-gold: 45 100% 55%;
   --neon-purple: 270 100% 65%;
 
-  /* Typography */
-  --font-display: 'Orbitron', sans-serif;
-  --font-body: 'Rajdhani', sans-serif;
+--font-display: 'Orbitron', sans-serif;
+ --font-body: 'Rajdhani', sans-serif;
 
-  /* Animation Timings */
   --transition-fast: 150ms;
   --transition-normal: 300ms;
   --transition-slow: 500ms;
 
-  /* Spacing */
   --radius: 0.75rem;
 }
 
-/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -50,9 +38,6 @@ body {
   line-height: 1.5;
 }
 
-/* ==========================================================================
-   Hero Banner Container
-   ========================================================================== */
 .hero-banner {
   position: relative;
   width: 100%;
@@ -72,9 +57,6 @@ body {
   outline-offset: -2px;
 }
 
-/* ==========================================================================
-   Slides
-   ========================================================================== */
 .slide {
   position: absolute;
   inset: 0;
@@ -93,7 +75,6 @@ body {
   pointer-events: auto;
 }
 
-/* Slide Background */
 .slide-bg {
   position: absolute;
   inset: 0;
@@ -102,7 +83,6 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Slide Overlay */
 .slide-overlay {
   position: absolute;
   inset: 0;
@@ -114,7 +94,6 @@ body {
   );
 }
 
-/* Slide Content */
 .slide-content {
   position: relative;
   z-index: 10;
@@ -143,9 +122,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   Content Animations
-   ========================================================================== */
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -188,20 +164,14 @@ body {
   animation: fadeInUp 0.5s ease-out 0.4s both;
 }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* ==========================================================================
-   Badge
-   ========================================================================== */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -233,7 +203,6 @@ body {
   height: 1rem;
 }
 
-/* Badge Pulse Animation */
 @keyframes badgePulse {
   0%, 100% {
     box-shadow: 0 0 20px hsl(var(--neon-gold) / 0.6),
@@ -304,9 +273,6 @@ body {
   }
 }
 
-/* ==========================================================================
-   Headline
-   ========================================================================== */
 .headline {
   font-family: var(--font-display);
   font-size: clamp(2rem, 6vw, 4.5rem);
@@ -315,31 +281,24 @@ body {
   color: hsl(var(--foreground));
 }
 
-/* Text Glow Effects */
 .text-glow-pink {
-  text-shadow: 
-    0 0 10px hsl(var(--neon-pink) / 0.8),
-    0 0 20px hsl(var(--neon-pink) / 0.6),
-    0 0 40px hsl(var(--neon-pink) / 0.4);
+  text-shadow: 0 0 10px hsl(var(--neon-pink) / 0.8),
+               0 0 20px hsl(var(--neon-pink) / 0.6),
+               0 0 40px hsl(var(--neon-pink) / 0.4);
 }
 
 .text-glow-cyan {
-  text-shadow: 
-    0 0 10px hsl(var(--neon-cyan) / 0.8),
-    0 0 20px hsl(var(--neon-cyan) / 0.6),
-    0 0 40px hsl(var(--neon-cyan) / 0.4);
+  text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
+               0 0 20px hsl(var(--neon-cyan) / 0.6),
+               0 0 40px hsl(var(--neon-cyan) / 0.4);
 }
 
 .text-glow-gold {
-  text-shadow: 
-    0 0 10px hsl(var(--neon-gold) / 0.8),
-    0 0 20px hsl(var(--neon-gold) / 0.6),
-    0 0 40px hsl(var(--neon-gold) / 0.4);
+  text-shadow: 0 0 10px hsl(var(--neon-gold) / 0.8),
+               0 0 20px hsl(var(--neon-gold) / 0.6),
+               0 0 40px hsl(var(--neon-gold) / 0.4);
 }
 
-/* ==========================================================================
-   Subtext
-   ========================================================================== */
 .subtext {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2.5vw, 1.5rem);
@@ -349,9 +308,6 @@ body {
   line-height: 1.6;
 }
 
-/* ==========================================================================
-   Countdown Timer
-   ========================================================================== */
 .timer {
   display: flex;
   align-items: center;
@@ -425,32 +381,26 @@ body {
   color: hsl(var(--muted-foreground));
 }
 
-/* Timer Tick Animation */
 @keyframes timerTick {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .timer-digit.tick {
   animation: timerTick 0.3s ease-out;
 }
 
-/* ==========================================================================
-   CTA Button
-   ========================================================================== */
 .cta-button {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 1rem 2rem;
+  padding: .8rem 1rem;
+  min-width: 70px;
+  max-width: 21%;
   border-radius: var(--radius);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: .7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -464,25 +414,19 @@ body {
 .cta-pink {
   background-color: hsl(var(--neon-pink));
   color: hsl(var(--foreground));
-  box-shadow: 
-    0 0 20px hsl(var(--neon-pink) / 0.5),
-    0 0 40px hsl(var(--neon-pink) / 0.3);
+  box-shadow: 0 0 20px hsl(var(--neon-pink) / 0.5), 0 0 40px hsl(var(--neon-pink) / 0.3);
 }
 
 .cta-cyan {
   background-color: hsl(var(--neon-cyan));
   color: hsl(var(--background));
-  box-shadow: 
-    0 0 20px hsl(var(--neon-cyan) / 0.5),
-    0 0 40px hsl(var(--neon-cyan) / 0.3);
+  box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
 }
 
 .cta-gold {
   background-color: hsl(var(--neon-gold));
   color: hsl(var(--background));
-  box-shadow: 
-    0 0 20px hsl(var(--neon-gold) / 0.5),
-    0 0 40px hsl(var(--neon-gold) / 0.3);
+  box-shadow: 0 0 20px hsl(var(--neon-gold) / 0.5), 0 0 40px hsl(var(--neon-gold) / 0.3);
 }
 
 .cta-icon {
@@ -491,7 +435,6 @@ body {
   transition: transform var(--transition-normal) ease;
 }
 
-/* Shimmer Effect */
 .cta-button::before {
   content: '';
   position: absolute;
@@ -499,12 +442,7 @@ body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    hsl(var(--foreground) / 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, hsl(var(--foreground)/0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -521,21 +459,15 @@ body {
 }
 
 .cta-pink:hover {
-  box-shadow: 
-    0 10px 30px hsl(var(--neon-pink) / 0.4),
-    0 0 60px hsl(var(--neon-pink) / 0.3);
+  box-shadow: 0 10px 30px hsl(var(--neon-pink)/0.4), 0 0 60px hsl(var(--neon-pink)/0.3);
 }
 
 .cta-cyan:hover {
-  box-shadow: 
-    0 10px 30px hsl(var(--neon-cyan) / 0.4),
-    0 0 60px hsl(var(--neon-cyan) / 0.3);
+  box-shadow: 0 10px 30px hsl(var(--neon-cyan)/0.4), 0 0 60px hsl(var(--neon-cyan)/0.3);
 }
 
 .cta-gold:hover {
-  box-shadow: 
-    0 10px 30px hsl(var(--neon-gold) / 0.4),
-    0 0 60px hsl(var(--neon-gold) / 0.3);
+  box-shadow: 0 10px 30px hsl(var(--neon-gold)/0.4), 0 0 60px hsl(var(--neon-gold)/0.3);
 }
 
 .cta-button:focus {
@@ -547,9 +479,6 @@ body {
   outline-offset: 2px;
 }
 
-/* ==========================================================================
-   Navigation Arrows
-   ========================================================================== */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -561,9 +490,9 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: hsl(var(--background) / 0.2);
+  background-color: hsl(var(--background)/0.2);
   backdrop-filter: blur(10px);
-  border: 1px solid hsl(var(--border) / 0.3);
+  border: 1px solid hsl(var(--border)/0.3);
   color: hsl(var(--foreground));
   cursor: pointer;
   transition: all var(--transition-normal) ease;
@@ -576,21 +505,12 @@ body {
   }
 }
 
-.nav-prev {
-  left: 1rem;
-}
-
-.nav-next {
-  right: 1rem;
-}
+.nav-prev { left: 1rem; }
+.nav-next { right: 1rem; }
 
 @media (min-width: 768px) {
-  .nav-prev {
-    left: 2rem;
-  }
-  .nav-next {
-    right: 2rem;
-  }
+  .nav-prev { left: 2rem; }
+  .nav-next { right: 2rem; }
 }
 
 .nav-arrow svg {
@@ -599,29 +519,21 @@ body {
 }
 
 @media (min-width: 768px) {
-  .nav-arrow svg {
-    width: 2rem;
-    height: 2rem;
-  }
+  .nav-arrow svg { width: 2rem; height: 2rem; }
 }
 
 .nav-arrow:hover {
   transform: translateY(-50%) scale(1.1);
-  background-color: hsl(var(--neon-pink) / 0.3);
+  background-color: hsl(var(--neon-pink)/0.3);
 }
 
-.nav-arrow:focus {
-  outline: none;
-}
+.nav-arrow:focus { outline: none; }
 
 .nav-arrow:focus-visible {
   outline: 2px solid hsl(var(--neon-cyan));
   outline-offset: 2px;
 }
 
-/* ==========================================================================
-   Slide Indicators
-   ========================================================================== */
 .slide-indicators {
   position: absolute;
   bottom: 2rem;
@@ -637,7 +549,7 @@ body {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  border: 2px solid hsl(var(--muted-foreground) / 0.5);
+  border: 2px solid hsl(var(--muted-foreground)/0.5);
   background-color: transparent;
   cursor: pointer;
   transition: all var(--transition-normal) ease;
@@ -645,81 +557,36 @@ body {
 
 .indicator:hover {
   border-color: hsl(var(--neon-pink));
-  background-color: hsl(var(--neon-pink) / 0.3);
+  background-color: hsl(var(--neon-pink)/0.3);
 }
 
 .indicator-active {
-  width: 2rem;
-  background-color: hsl(var(--neon-pink));
-  border-color: hsl(var(--neon-pink));
+  width: .8rem;
+  background-color: hsl(180,100%,50%);
+  border-color: hsl(180,100%,50%);
 }
 
 @keyframes indicatorGlow {
-  0%, 100% {
-    border-color: hsl(var(--neon-pink));
-    box-shadow: 0 0 10px hsl(var(--neon-pink) / 0.5);
-  }
-  33% {
-    border-color: hsl(var(--neon-cyan));
-    box-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5);
-  }
-  66% {
-    border-color: hsl(var(--neon-gold));
-    box-shadow: 0 0 10px hsl(var(--neon-gold) / 0.5);
-  }
+  0%,100% { border-color: hsl(var(--neon-pink)); box-shadow:0 0 10px hsl(var(--neon-pink)/0.5);}
+  33% { border-color: hsl(var(--neon-cyan)); box-shadow:0 0 10px hsl(var(--neon-cyan)/0.5);}
+  66% { border-color: hsl(var(--neon-gold)); box-shadow:0 0 10px hsl(var(--neon-gold)/0.5);}
 }
 
 .indicator-active {
   animation: indicatorGlow 3s linear infinite;
 }
 
-.indicator:focus {
-  outline: none;
-}
+.indicator:focus { outline: none; }
+.indicator:focus-visible { outline: 2px solid hsl(var(--neon-cyan)); outline-offset: 2px; }
 
-.indicator:focus-visible {
-  outline: 2px solid hsl(var(--neon-cyan));
-  outline-offset: 2px;
-}
-
-/* ==========================================================================
-   Responsive Adjustments
-   ========================================================================== */
 @media (max-width: 640px) {
-  .timer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .timer-digit {
-    min-width: 2.5rem;
-    padding: 0.4rem 0.6rem;
-    font-size: 1.25rem;
-  }
-
-  .cta-button {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.875rem;
-  }
+  .timer { flex-direction: column; align-items: flex-start; gap:0.5rem; }
+  .timer-digit { min-width:2.5rem; padding:0.4rem 0.6rem; font-size:1.25rem; }
+  .cta-button { padding:0.875rem 1.5rem; font-size:0.875rem; }
 }
 
-/* ==========================================================================
-   Print Styles
-   ========================================================================== */
 @media print {
-  .hero-banner {
-    height: auto;
-    min-height: auto;
-    max-height: none;
-  }
-
-  .nav-arrow,
-  .slide-indicators {
-    display: none;
-  }
-
-  .slide:not(.slide-active) {
-    display: none;
-  }
+  .hero-banner { height:auto; min-height:auto; max-height:none; }
+  .nav-arrow, .slide-indicators { display:none; }
+  .slide:not(.slide-active) { display:none; }
 }
